@@ -1,4 +1,5 @@
 module.exports = () => {
+	let emojiArr = [];
 	let messages = [
 		'Mihir kinda sus',
 		'Got it!',
