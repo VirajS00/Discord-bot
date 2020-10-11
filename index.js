@@ -16,10 +16,10 @@ client.on('message', async (msg) => {
 			await msg.channel.send('⓼ ' + eightBall());
 		} else if (msg.content.toLowerCase() === '!sticker') {
 			let rand = Math.floor(Math.random() * 7) + 1;
-			let attachment = new MessageAttachment('./friendss/' + rand + '.png');
+			let attachment = new MessageAttachment('./friendss/' + rand + '.webp');
 			await msg.channel.send(attachment);
 		}
-		// await msg.react(reaction(msg.content.toLowerCase()));
+		await msg.react(reaction(msg.content.toLowerCase()));
 		// await msg.react(reaction(msg.content.toLowerCase()));
 	}
 });
