@@ -1,8 +1,21 @@
 const emoji = require('emoji.json');
 
+const AddIng = (str) => {
+	let newStr = '';
+	if (str.endsWith('e')) {
+		newStr = str.substr(0, str.length - 1);
+	} else {
+		newStr = str;
+	}
+	if (newStr.length === 0 || newStr === '') return;
+	const ing = 'ing';
+	let finalStr = newStr + ing;
+	return finalStr;
+};
+
 const search = (nameKey, myArray) => {
 	for (let i = 0; i < myArray.length; i++) {
-		if (myArray[i].name.includes(nameKey)) {
+		if (myArray[i].name.includes(nameKey) || myArray[i].name.includes(AddIng(nameKey))) {
 			return myArray[i].char;
 		}
 	}

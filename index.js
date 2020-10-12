@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config();
 const client = new Client();
 const eightBall = require('./includes/8ball');
 const reaction = require('./includes/reation');
+const giphyGet = require('./includes/giphyGet');
 
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
@@ -18,9 +19,11 @@ client.on('message', async (msg) => {
 			let rand = Math.floor(Math.random() * 7) + 1;
 			let attachment = new MessageAttachment('./friendss/' + rand + '.webp');
 			await msg.channel.send(attachment);
+		} else if (msg.content.toLowerCase() === '!gif' || /!gif\s(.*)/i.test(msg.content)) {
+			await msg.channel.send(await giphyGet(msg.content.toLowerCase()).catch((err) => 'cannot get GIF'));
+		} else if (msg.content.toLowerCase() === '!react' || /!react\s(.*)/i.test(msg.content)) {
+			await msg.react(reaction(msg.content.toLowerCase()));
 		}
-		await msg.react(reaction(msg.content.toLowerCase()));
-		// await msg.react(reaction(msg.content.toLowerCase()));
 	}
 });
 
