@@ -11,6 +11,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"canvas": "^2.6.1",
 		"discord.js": "^12.3.1",
 		"emoji.json": "^13.0.0",
 		"node-fetch": "^2.6.1"

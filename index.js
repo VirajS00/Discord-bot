@@ -25,6 +25,8 @@ client.on('message', async (msg) => {
 			);
 		} else if (msg.content.toLowerCase() === '!react' || /!react\s(.*)/i.test(msg.content)) {
 			await msg.react(reaction(msg.content.toLowerCase()));
+		} else if (/!\w/.test(msg.content)) {
+			await msg.channel.send('```diff\n- command not found\n```');
 		}
 	}
 });
